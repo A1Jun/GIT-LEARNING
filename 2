@@ -1,9 +1,9 @@
-时光穿梭机
+$ 时光穿梭机
 
 如果修改了提交的文件，可以用git status命令查看仓库的状态
 git diff这个命令能看到具体修改了什么内容
 
-版本回退
+$ 版本回退
 
 git log命令查看我们修改这个文件的历史记录，由倒序的顺序显示
 还可以用  --pretty=oneline参数
@@ -19,8 +19,23 @@ Git内部有个指向当前版本的HEAD指针，回退版本时，Git仅仅把H
 
 如果，在关闭了当前的命令终端后，(ˇˍˇ） 想～恢复未来的版本，则用git reglog命令来查看以前的命令来找到这个版本的commit id。
 
+$ 工作区和暂缓区
 
+learngit文件夹就是一个工作区(Working Directory)
 
+版本库(Repository)
+隐藏目录.git就是Git的版本库，这里面有stage(index)暂缓区，还有Git自动创建的第一个分支master,以及指向master的一个指针HEAD。
+第一步git add，是把文件修改添加到暂缓区；
+第二步git commit实际上就是把暂缓区的所有内容提交到当前分支。
+一旦提交后，如果没有对工作区做任何修改，那么工作区就是"干净"的。
+
+$ 管理修改
+
+Git跟踪并管理的是修改，而不是文件。
+
+git diff 是工作区和暂存区的对比
+git diff --cached 是暂缓区和分支的对比
+git diff HEAD --readme.txt 工作区和分支的对比
 
 
 
