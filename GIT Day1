@@ -1,0 +1,29 @@
+Git是分布式版本管理系统
+安装Git后进行设置
+
+$ git config --global user.name "Your Name"
+$ git config --global user.email "email@example.com"
+
+--global参数表示这台机器上所有的Git仓库都会使用这个配置。
+
+创建一个版本库 
+先创建一个空目录:
+$ mkdir learngit
+$ cd learngit
+$ pwd
+/c/Users/Administrator/learngit
+
+接下来通过git init命令把这个目录变成Git可以管理的仓库
+$ git init
+Initialized empty Git repository in C:/Users/Administrator/learngit/.git/
+
+把文件添加进版本库
+编写一个.txt文件，然后放到learngit目录下，因为这是一个Git仓库
+$ git add x.txt              #把文件添加进仓库
+$ git commit -m "wrote a readme file"  #把文件提交到仓库
+-m后面输入的是本次提交的说明，最好是有意义的，方便找到改动记录。
+
+因为commit可以一次提交很多文件，所以可以多次add不同文件。
+
+
+最后知道了一件有意思的东西，Unix的哲学就是“没有消息就是最好的消息”。
