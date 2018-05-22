@@ -1,0 +1,7 @@
+在github上创建远程库，并在本地端用命令
+                                $ git clone git@github.com:yourname/originname.git
+                                就可以克隆到本地来啦！
+                                
+还可以使用http地址，但是听说速度慢，并且每次推送都得输入口令。      
+
+                                $ git push -u origin master 推送到远程
