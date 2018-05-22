@@ -1,0 +1,40 @@
+在readme.txt中有错误，但是还没有提交，可以手动把错误删除，
+$ git checkout -- file   可以丢弃工作区的修改，
+一种自修改后还没有被放到暂存区，现在撤销修改就回到和版本库一模一样的状态；
+还有一种是已经添加到暂存区后，又作了修改，执行命令后就回到添加到暂存区后的状态。
+
+如果已经git add到暂存区了，但是没有commit，用命令 $ git reset HEAD file  可以把暂存区的修改撤销掉重新放回工作区，
+然后$ git checkout -- file    丢弃工作区的修改。
+
+如果已经提交了不合适的修改到版本库时，可以用版本回退撤销本次提交，不过前提是没有推送到远程库。
+
+删除文件：
+
+$ rm file   可以用这个命令删了，也可以在文件管理器中把没用的文件删了
+$ git rm file  
+$ git commit -m "remove file"    这个命令是确认从版本库中删除，并提交
+
+另一种删错了，前提是还没有commit
+所以版本库中还有，$ git checkout -- file 就会恢复到版本库中的最新版本。
+
+远程仓库：
+
+$ ssh-keygen -t rsa -C "youremail@example.com"
+由于本地Git仓库和Github仓库之间的传输是通过SSH加密的，所以创建SSH Key
+在本地目录找到.ssh文件夹，复制里面id_rsa.pub的内容
+Add SSH Key 就ok啦！
+
+在github上创建一个repository,执行命令关联本地的learngit仓库。
+                           
+                           $ git remote add origin git@github.com:yourname/learngit.git
+                            
+      #origin是远程库的名字， 执行命令将本地库的内容推送到远程库上
+      
+                            $ git push -u origin master
+                            
+      #git push实际上是把当前分支master推送到远程， 而第一次推送master分支时，
+            加上-u参数，会把本地master分支和远程的master分支关联起来。
+      
+      # 之后再本地作提交，就可用 $ git push origin master 
+      
+   这就是分布式的牛逼之处，不用联网在本地就可以工作。再也不用担心交不起网费啦。   
