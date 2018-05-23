@@ -1,0 +1,12 @@
+如果已经有了一个远程库origin 
+删除这个远程库重新添加即可       $ git remote rm origin
+                               $ git remote add origin git@github.com:yourname/file.git
+                               $ git init       #在文件夹生成.git文件夹
+                               $ touch README    #生成一个README文件
+                               $ git add README
+                               $ git commit -m "xxxx"
+                               $ git push -u origin master
+                               $ git pull
+                               $ git add .
+                               $ git commit -m "xxx"
+                               $ git push origin master
