@@ -1,0 +1,31 @@
+
+软件开发时，总是会遇到bug。在Git中可以每个bug通过一个新的临时分支来修复，修复后，合并分支，然后再将临时分支删除。
+
+------------------------------------如果这种情况时-------------------------------
+
+在接到一个修复代号101的bug任务是，要创建一个分支issue-101来修复。
+但是当前在dev上进行的工作还没有提交。
+------------------------------------演示代码-------------------------------------
+$ git status
+On branch dev
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+    new file:   hello.py
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+    modified:   readme.txt
+-------------------------------如何恢复隐藏的工作现场------------------------------
+这是因为在dev上的工作还没有结束，所以没办法提交，但是bug修复要马上开始。
+
+所以用 $ git stash 命令来隐藏当前的工作现场，然后切换到要修复bug的分支上。
+在修复完bug后，切换回dev分支，并且用 $ git stash list看到隐藏的工作现场。
+
+恢复的方法:   1. $ git stash apply  此时恢复了工作现场，再$ git stash drop 删除stash内容
+          可以多次stash， 然后用git stash app stash@{}恢复指定的stash。
+
+             2. $ git stash pop    恢复的同时把stash内容也删了
+
