@@ -1,0 +1,32 @@
+在从远程仓库克隆是，实际上Git自动把本地的master分支和远程的master分支对应起来了。
+
+-----------------------------命令---------------------------
+$ git remote                        # 查看远程库的信息
+$ git remote -v                     # 查看更详细的信息
+$ git push origin <branch_name>     # 指定本地分支，并把该分支推送到远程库对应的远程分支上
+
+
+-----------------------------------------抓取分支---------------------------------------
+我是模拟我在另一台电脑上往Learngit仓库dev分支推送修改。
+1. 从github上clone了Learngit仓库，然后创建本地和远程库对应的dev分支
+
+$ git checkout -b dev origin/dev
+然后把在本地修改的dev分支推送到远程库(origin/dev)。
+
+2. 然后我在自己的电脑里修改了dev分支的内容，也是同样的文件做了修改，但是有冲突。
+
+所以推送时  $ git push origin dev 失败
+因此，在远程库把另一个小伙伴提交的内容$ git pull 抓取下来，然后在本地合并解决冲突并提交。
+
+可能会有$ git pull失败的情形，这是因为没有指定本地dev分支与远程origin/dev分支的链接，
+
+$ git branch --set-upstream-to=origin/dev dev   设置dev和origin/dev的链接
+
+然后再pull就可以了，如果合并冲突则手动解决
+$ git add
+$ git commit -m
+$ git push origin dev
+
+
+
+
